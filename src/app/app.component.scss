@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Ensure the container takes at least the full viewport height */
+}
+
+app-decoration {
+  flex: 1;
+  /* Allows the decoration component to grow and take available space */
+}
+
+// app-footer {
+//   width: 100%;
+// }

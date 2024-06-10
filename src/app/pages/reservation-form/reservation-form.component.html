@@ -1,0 +1,32 @@
+<div class="reservation-form-main">
+  <div class="form-container">
+    <h3>ბილეთების დაჯავშვნა</h3>
+    <form action="">
+      <div class="form-where">
+        <select>
+          <option value="">საიდან</option>
+          <option *ngFor="let station of station" [value]="station.id">
+            {{ station.name }}
+          </option>
+        </select>
+      </div>
+      <div class="where">
+        <select>
+          <option value="">სად</option>
+          <option *ngFor="let station of station" [value]="station.id">
+            {{ station.name }}
+          </option>
+        </select>
+      </div>
+      <div class="departure-date">
+        <input type="date" placeholder="თარიღი" />
+      </div>
+      <div class="passangers-number">
+        <input type="number" placeholder="მგზავრების რაოდენობა" />
+      </div>
+      <div class="btn">
+        <button type="submit">ძებნა</button>
+      </div>
+    </form>
+  </div>
+</div>
