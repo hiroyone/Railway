@@ -1,12 +1,69 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tickets-page',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, HttpClientModule],
   templateUrl: './tickets-page.component.html',
-  styleUrl: './tickets-page.component.scss'
+  styleUrls: ['./tickets-page.component.scss']
 })
-export class TicketsPageComponent {
+export class TicketsPageComponent implements OnInit {
+  wagons: any[] = [];
+  seats: any[] = [];
+  private apiUrl = 'https://railway.stepprojects.ge/api';
 
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.getWagons().subscribe(
+      data => {
+        console.log('Wagons fetched successfully:', data);
+        this.wagons = data;
+      },
+      error => {
+        console.error('Error fetching wagons:', error);
+      }
+    );
+  }
+
+  getWagons(): Observable<any[]> {
+    const url = `${this.apiUrl}/vagons`;
+    console.log('Fetching wagons from:', url);
+    return this.http.get<any[]>(url).pipe(
+      catchError(error => {
+        console.error('Error in getWagons:', error);
+        return of([]);
+      })
+    );
+  }
+
+  onWagonChange(event: any) {
+    const wagonId = event.target.value;
+    console.log('Wagon selected:', wagonId);
+    this.loadSeats(wagonId);
+  }
+
+  loadSeats(wagonId: string) {
+    const url = `${this.apiUrl}/seats?wagonId=${wagonId}`;
+    console.log('Fetching seats from:', url);
+    this.http.get<any[]>(url).pipe(
+      catchError(error => {
+        console.error('Error in loadSeats:', error);
+        return of([]);
+      })
+    ).subscribe(
+      data => {
+        console.log('Seats fetched successfully:', data);
+        this.seats = data;
+      },
+      error => {
+        console.error('Error fetching seats:', error);
+      }
+    );
+  }
 }

@@ -1,0 +1,131 @@
+.ticket-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #e0f7fa;
+  /* Light cyan background for a fresh look */
+  font-family: 'Roboto', sans-serif;
+
+  .selection-area {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff;
+    /* Pure white background for the card */
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    /* More rounded corners */
+    padding: 30px;
+    /* Increased padding for more space */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* Slightly larger shadow for depth */
+    margin-bottom: 30px;
+
+    .wagon-selection,
+    .seat-selection,
+    .photo-area {
+      margin-bottom: 25px;
+
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: #00796b;
+        /* Teal color for headings */
+      }
+    }
+
+    .wagon-selection,
+    .seat-selection {
+      select {
+        width: 100%;
+        padding: 15px;
+        /* Increased padding for a more luxurious feel */
+        font-size: 1.1rem;
+        border: 2px solid #00796b;
+        /* Teal border */
+        border-radius: 8px;
+        /* Slightly more rounded corners */
+        background-color: #f1f8e9;
+        /* Light green background */
+        transition: border-color 0.3s, background-color 0.3s;
+
+        &:focus {
+          border-color: #004d40;
+          /* Darker teal for focus */
+          background-color: #e0f2f1;
+          /* Lighter background on focus */
+        }
+
+        option {
+          padding: 10px;
+          background-color: #ffffff;
+          /* Pure white for options */
+          border-bottom: 1px solid #ddd;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #f1f1f1;
+          }
+
+          &:checked {
+            background-color: #00796b;
+            /* Teal for selected options */
+            color: #ffffff;
+            /* White text for selected options */
+          }
+        }
+      }
+    }
+
+    .photo-area {
+      .photos {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        img {
+          width: 150px;
+          /* Larger images */
+          height: 150px;
+          object-fit: cover;
+          border-radius: 10px;
+          /* More rounded corners */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s, box-shadow 0.3s;
+          /* Added box-shadow transition */
+
+          &:hover {
+            transform: scale(1.1);
+            /* Larger scale on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            /* Deeper shadow on hover */
+          }
+        }
+      }
+    }
+  }
+
+  .submit-area {
+    button {
+      padding: 15px 35px;
+      /* Larger padding for a more prominent button */
+      font-size: 1.2rem;
+      color: #ffffff;
+      background-color: #00796b;
+      /* Teal button */
+      border: none;
+      border-radius: 8px;
+      /* More rounded corners */
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+
+      &:hover {
+        background-color: #004d40;
+        /* Darker teal on hover */
+        transform: translateY(-3px);
+        /* Slightly more pronounced lift */
+      }
+    }
+  }
+}
