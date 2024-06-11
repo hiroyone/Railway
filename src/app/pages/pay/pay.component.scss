@@ -1,0 +1,57 @@
+Elene Giunashvili .pay-page {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4a90e2;
+    /* Soft blue color for the heading */
+  }
+
+  .ticket-info {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+
+    .ticket-details {
+      margin-bottom: 20px;
+
+      p {
+        margin: 10px 0;
+        font-size: 16px;
+
+        strong {
+          color: #333;
+        }
+      }
+    }
+
+    .cancel-button-area {
+      text-align: center;
+
+      .cancel-button {
+        background-color: #ff4b5c;
+        /* Red color for the cancel button */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #e04350;
+          /* Darker red for the hover state */
+        }
+      }
+    }
+  }
+}

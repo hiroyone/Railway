@@ -1,4 +1,38 @@
 <div class="user-page">
-  <h1>Welcome to the User Page</h1>
-  <p>Your registration was successful!</p>
+  <h1>გადახდა</h1>
+  <form (ngSubmit)="onSubmit(payForm)" #payForm="ngForm">
+    <div class="form-group">
+      <label for="cardNumber">ბარათის ნომერი</label>
+      <input type="text" id="cardNumber" name="cardNumber" ngModel required />
+    </div>
+
+    <div class="form-group">
+      <label for="cardName">სახელი</label>
+      <input type="text" id="cardName" name="cardName" ngModel required />
+    </div>
+
+    <div class="form-group">
+      <label for="expiryDate">ვადა</label>
+      <input
+        type="text"
+        id="expiryDate"
+        name="expiryDate"
+        ngModel
+        required
+        placeholder="MM/YY"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" name="cvv" ngModel required />
+    </div>
+
+    <div class="form-group">
+      <label for="amount">თანხა</label>
+      <input type="number" id="amount" name="amount" ngModel required />
+    </div>
+
+    <button type="submit">გადახდა</button>
+  </form>
 </div>

@@ -4,7 +4,10 @@
     <div class="wagon-selection">
       <h2>Select Wagon</h2>
       <select (change)="onWagonChange($event)">
-        <option *ngFor="let wagon of wagons" [value]="wagon.id">{{ wagon.name }}</option>
+        <option *ngFor="let wagon of wagons" [value]="wagon.id">
+          {{ wagon.name }} - {{ wagon.date }} - {{ wagon.departure }} /
+          {{ wagon.arrive }}
+        </option>
       </select>
     </div>
 
@@ -15,12 +18,15 @@
     <div class="photo-area">
       <h2>Photos</h2>
       <div class="photos">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpr3-eDb7YtMmm14G7XGOS40alfo44sThxSQ&s"
-          alt="Photo 1">
-        <img src="https://wallpapercave.com/wp/nBLi5aY.jpg" alt="Photo 2">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpr3-eDb7YtMmm14G7XGOS40alfo44sThxSQ&s"
+          alt="Photo 1"
+        />
+        <img src="https://wallpapercave.com/wp/nBLi5aY.jpg" alt="Photo 2" />
         <img
           src="https://e0.pxfuel.com/wallpapers/427/661/desktop-wallpaper-indian-railway-indian-railway-train-indian-railways-india-travel-places.jpg"
-          alt="Photo 3">
+          alt="Photo 3"
+        />
       </div>
     </div>
   </div>
