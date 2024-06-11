@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tickets-page',
@@ -17,7 +17,7 @@ export class TicketsPageComponent implements OnInit {
   seats: any[] = [];
   private apiUrl = 'https://railway.stepprojects.ge/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.getWagons().subscribe(
@@ -32,7 +32,7 @@ export class TicketsPageComponent implements OnInit {
   }
 
   getWagons(): Observable<any[]> {
-    const url = `${this.apiUrl}/vagons`;
+    const url = `${this.apiUrl}/trains`;
     console.log('Fetching wagons from:', url);
     return this.http.get<any[]>(url).pipe(
       catchError(error => {
@@ -65,5 +65,9 @@ export class TicketsPageComponent implements OnInit {
         console.error('Error fetching seats:', error);
       }
     );
+  }
+
+  onSearch() {
+    this.router.navigate(['/information']);
   }
 }

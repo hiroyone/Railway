@@ -8,13 +8,8 @@
       </select>
     </div>
 
-    <!-- Seat Selection Area -->
-    <div class="seat-selection">
-      <h2>Select Seats</h2>
-      <select multiple>
-        <option *ngFor="let seat of seats" [value]="seat.id">{{ seat.number }}</option>
-      </select>
-    </div>
+    <!-- Include the new Seat Selection Component -->
+    <!-- <app-seat-selection></app-seat-selection> -->
 
     <!-- Photo Area -->
     <div class="photo-area">
@@ -30,8 +25,7 @@
     </div>
   </div>
 
-  <!-- Submit Button Area -->
   <div class="submit-area">
-    <button>Submit</button>
+    <button type="button" (click)="onSearch()">Search</button>
   </div>
 </div>

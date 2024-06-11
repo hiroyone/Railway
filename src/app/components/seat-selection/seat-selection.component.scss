@@ -1,0 +1,50 @@
+.seat-selection {
+  margin-bottom: 25px;
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #00796b;
+    /* Teal color for headings */
+  }
+
+  select {
+    width: 100%;
+    padding: 15px;
+    /* Increased padding for a more luxurious feel */
+    font-size: 1.1rem;
+    border: 2px solid #00796b;
+    /* Teal border */
+    border-radius: 8px;
+    /* Slightly more rounded corners */
+    background-color: #f1f8e9;
+    /* Light green background */
+    transition: border-color 0.3s, background-color 0.3s;
+
+    &:focus {
+      border-color: #004d40;
+      /* Darker teal for focus */
+      background-color: #e0f2f1;
+      /* Lighter background on focus */
+    }
+
+    option {
+      padding: 10px;
+      background-color: #ffffff;
+      /* Pure white for options */
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f1f1f1;
+      }
+
+      &:checked {
+        background-color: #00796b;
+        /* Teal for selected options */
+        color: #ffffff;
+        /* White text for selected options */
+      }
+    }
+  }
+}
