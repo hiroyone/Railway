@@ -1,31 +1,36 @@
 <div class="information-page">
   <h1>მგზავრის რეგისტრაცია</h1>
-  <form>
+  <form (ngSubmit)="onSubmit(infoForm)" #infoForm="ngForm">
     <div class="form-group">
       <label for="firstName">სახელი</label>
-      <input type="text" id="firstName" name="firstName" required>
+      <input type="text" id="firstName" name="firstName" ngModel required>
     </div>
 
     <div class="form-group">
       <label for="lastName">გვარი</label>
-      <input type="text" id="lastName" name="lastName" required>
+      <input type="text" id="lastName" name="lastName" ngModel required>
     </div>
 
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email" ngModel required>
     </div>
 
     <div class="form-group">
       <label for="phone">ტელეფონის ნომერი</label>
-      <input type="tel" id="phone" name="phone" required>
+      <input type="tel" id="phone" name="phone" ngModel required>
     </div>
 
     <div class="form-group">
       <label for="address">მისამართი</label>
-      <input type="text" id="address" name="address" required>
+      <input type="text" id="address" name="address" ngModel required>
     </div>
 
-    <button type="submit">რეგისტრაცია</button>
+    <button type="submit" [disabled]="infoForm.invalid">რეგისტრაცია</button>
   </form>
+
+  <div *ngIf="submitted" class="success-message">
+    <h2>Registration Successful!</h2>
+    <p>Thank you for registering, {{ client.firstName }} {{ client.lastName }}.</p>
+  </div>
 </div>
